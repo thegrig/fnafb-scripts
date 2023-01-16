@@ -1,5 +1,6 @@
 #this script makes drain damage play a noise, instead of pure silence
 #:)
+#v1.1
 module NOISYSUCK
   ActorHPDrainSE = ["Absorb1",100,100] #Name, Volume, Pitch
   ActorMPDrainSE = ["Absorb1",100,120]
@@ -30,11 +31,11 @@ class Window_BattleLog < Window_Selectable
   def display_hp_damage(target, item)
     return if target.result.hp_damage == 0 && item && !item.damage.to_hp? && !item.damage.drain?
     if target.result.hp_drain > 0
-      target.perform_damage_effect(1)
+      target.suck_perform_damage_effect(1)
     elsif target.result.mp_drain > 0
-      target.perform_damage_effect(2)
+      target.suck_perform_damage_effect(2)
     elsif target.result.hp_damage > 0
-      target.perform_damage_effect(0)
+      target.perform_damage_effect
     else
     end
     Sound.play_recovery if target.result.hp_damage < 0
@@ -47,7 +48,7 @@ class Game_Actor < Game_Battler
   #--------------------------------------------------------------------------
   # * Execute Damage Effect
   #--------------------------------------------------------------------------
-  def perform_damage_effect(type)
+  def suck_perform_damage_effect(type)
     $game_troop.screen.start_shake(5, 5, 10)
     @sprite_effect_type = :blink
     case type
@@ -66,7 +67,7 @@ class Game_Enemy < Game_Battler
   #--------------------------------------------------------------------------
   # * Execute Damage Effect
   #--------------------------------------------------------------------------
-  def perform_damage_effect(type)
+  def suck_perform_damage_effect(type)
     @sprite_effect_type = :blink
     case type
       when 0
