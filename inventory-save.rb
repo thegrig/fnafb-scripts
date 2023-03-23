@@ -92,6 +92,10 @@ class Game_Party
       @saved_armors = item_container(RPG::Armor).clone
       @saved_weapons = item_container(RPG::Weapon).clone
       puts "Inventory Saved." if print0
+    when "equip"
+      @saved_armors = item_container(RPG::Armor).clone
+      @saved_weapons = item_container(RPG::Weapon).clone
+      puts "Equipment Saved." if print0
     end
     printInfo if print1
   end
@@ -113,6 +117,10 @@ class Game_Party
       @armors = @saved_armors.clone
       @weapons = @saved_weapons.clone
       puts "Inventory Loaded." if print0
+    when "equip"
+      @armors = @saved_armors.clone
+      @weapons = @saved_weapons.clone
+      puts "Equipment Loaded." if print0
     end
     printInfo if print1
   end
@@ -133,6 +141,10 @@ class Game_Party
       @armors = {}
       @weapons = {}
       puts "Inventory Cleared." if print0
+    when "equip"
+      @armors = {}
+      @weapons = {}
+      puts "Equipment Cleared." if print0
     end
     printInfo if print1
   end
