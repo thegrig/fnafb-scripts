@@ -26,8 +26,8 @@
 # EXAMPLES:
 #     - equal_leader(true)        all actors are set to the party leader's exp.
 #     - equal_index(1, false)     all party members are set to member 2's exp.
-#     - equal_actor(3  true)      all actors are set to actor 3's exp.
-#     - equal_value(100 false)    all party members now have 100 exp.
+#     - equal_actor(3, true)      all actors are set to actor 3's exp.
+#     - equal_value(100, false)   all party members now have 100 exp.
 #------------------------------------------------------------------------------
 # NOTES:
 #     - if you use equal_index without the appropriate party member present,
