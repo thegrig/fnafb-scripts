@@ -74,7 +74,7 @@ class Game_Battler
   end
   
   def apply_critical(damage)
-    damage * 2
+    damage * CritMod::DefaultMod
   end
   
   def apply_critmod(damage, critmod)
