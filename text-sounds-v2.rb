@@ -40,7 +40,8 @@
 #==============================================================================
 # * Misc Notes:
 #==============================================================================
-  - Text sounds will not play while fast-forwarding text.
+  - Facesets that aren't established will fallback on the generic sound if one
+    exists. Otherwise it will simply use no text sounds at all.
 #==============================================================================
 # * END OF EXPLANATION   
 #==============================================================================
